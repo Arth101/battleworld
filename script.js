@@ -29,13 +29,13 @@ function getRandomDamage(max) {
 
 function checkOpponentStatus(hp) {
   if(hp < 100) {
-    opponentImage.src = 'billeder/turalyon-angry.png';
+    opponentImage.src = 'billeder/turalyon-angry.jpg';
   }
   if (hp <= 50) {
-    opponentImage.src = 'billeder/turalyon-scared.png';
+    opponentImage.src = 'billeder/turalyon-scared.jpg';
   }
   if (hp <= 25) {
-    opponentImage.src = 'billeder/turalyon-sad.png';
+    opponentImage.src = 'billeder/turalyon-sad.jpg';
   }
   if (hp <= 0) {
     opponentImage.src = 'billeder/victory.png';
