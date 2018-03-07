@@ -15,13 +15,18 @@
         <!-- Add your site or application content here -->
         <h1>BattleWorld</h1>
         <p>Fight your opponents to the death!</p>
-        <img src="billeder/turalyon.jpg" alt="turalyon" class="opponent-image" data-opponent-image>
-        <h2>Hit Points:</h2>
-        <input type="number" value="100" disabled data-hp>
-        <h3 data-combat-log>Turalyon wants to battle!</h3>
-        <hr>
-        <button data-attack-btn>Attack him!</button>
-        <button data-flee-btn>Run away</button>
+        <button data-find-encounter>Find opponents</button>
+        
+        <div class="fight-interface" data-fight-interface>
+          <h2 data-opponent-nametag>Turalyon wants to battle!</h2>
+          <img src="billeder/turalyon.jpg" alt="turalyon" class="opponent-image" data-opponent-image>
+          <h2>Hit Points:</h2>
+          <input type="number" value="100" disabled data-hp>
+          <h3 data-combat-log>Turalyon wants to battle!</h3>
+          <hr>
+          <button data-attack-btn>Attack him!</button>
+          <button data-flee-btn>Run away</button>
+        </div>
 
         <script src="script.js"></script>
     </body>

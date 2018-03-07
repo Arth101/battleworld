@@ -29,6 +29,10 @@ hr {
     padding: 0;
 }
 
+.fight-interface {
+  display: none;
+}
+
 .opponent-image {
   height: 300px;
   width: 300px;
