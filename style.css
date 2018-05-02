@@ -25,6 +25,14 @@ body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
+  background-color: #8b7667;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2317141d' fill-opacity='0.49' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+nav {
+  background: #000;
+  color: white;
+  padding: 10px 20px;
 }
 
 main {
@@ -32,7 +40,7 @@ main {
 }
 
 h1 {
-  margin-top: 0;
+  margin: 0;
 }
 
 hr {
@@ -52,28 +60,42 @@ hr {
   display: none;
   width: calc(40% - 22px);
   max-width: 370px;
-  padding: 20px;
-  border: 1px solid;
   margin-left: 20px;
+  background-color: white;
 }
 
 .opponent-image {
   height: 300px;
-  width: 300px;
+  width: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.fight-controls {
+  padding: 20px;
 }
 
 .opponent-name {
   margin-top: 0;
   text-transform: capitalize;
+  text-align: center;
+}
+
+.opponent-hp {
+  background: forestgreen;
+  color: white;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
 }
 
 .map {
   position: relative;
   width: 60%;
   height: 600px;
-  border: 1px solid black;
+  background-color: white;
+  background-image: url('billeder/map1.png');
 }
 
 .player-character,
@@ -88,13 +110,16 @@ hr {
 }
 
 .player-character {
-  background-color: teal;
-  background-image: url('billeder/avatar/gnome.jpg');
+  background-image: url('billeder/avatar/gnome.png');
 }
 
 .foe {
   top: 200px;
   right: 80px;
-  background-color: tomato;
-  background-image: url('billeder/avatar/orc.jpg');
+  background-image: url('billeder/avatar/orc.png');
+}
+
+.framed {
+  border: 5px #eabf2a;
+  border-style: outset;
 }

@@ -2,6 +2,7 @@ console.log('WOW');
 
 var attackBtn = document.querySelector('[data-attack-btn]');
 var fleeBtn = document.querySelector('[data-flee-btn]');
+var leaveBtn = document.querySelector('[data-leave-btn]');
 var hpField = document.querySelector('[data-hp]');
 var combatLog = document.querySelector('[data-combat-log]');
 var opponentNametag = document.querySelector('[data-opponent-nametag]');
@@ -19,6 +20,7 @@ function generateRandomEncounter() {
     opponent = randomOpponent;
     console.log(randomOpponent);
     fightInterface.style.display = 'block';
+    leaveBtn.style.display = 'none';
     opponentNametag.innerHTML = opponent;
     opponentImage.src = 'billeder/' + opponent + '.jpg';
 };
@@ -30,8 +32,18 @@ attackBtn.addEventListener('click', function () {
     var dmg = getRandomDamage(15);
     var actualHp = hpField.value;
     var newHp = actualHp - dmg;
-    combatLog.innerHTML = 'You hit ' + opponent + ' for ' + dmg + ' damage. Ouch!'
-    hpField.value = newHp;
+    combatLog.innerHTML = 'You hit ' + opponent + ' for ' + dmg + ' damage. Ouch!';
+    
+    if(newHp <= 0) {
+      hpField.value = 0;
+      attackBtn.style.display = 'none';
+      fleeBtn.style.display = 'none';
+      leaveBtn.style.display = 'block';
+      combatLog.innerHTML = 'You have defeated ' + opponent + '!';
+      hasLeaved = true;
+    } else {
+      hpField.value = newHp;
+    }
     checkOpponentStatus(newHp);
 });
 
@@ -40,6 +52,10 @@ fleeBtn.addEventListener('click', function () {
     combatLog.innerHTML = 'You try to run away. ' + opponent + ' laughs at you!'
     opponentImage.src = 'billeder/' + opponent + '-happy.png';
     hasLeaved = true;
+});
+
+leaveBtn.addEventListener('click', function () {
+  fightInterface.style.display = 'none';
 });
 
 function getRandomDamage(max) {
@@ -149,6 +165,7 @@ function move(element, direction) {
     if (isCollide(player, foe)) {
         if (hasLeaved) {
             generateRandomEncounter();
+            console.log(foe.dataset.foename);
         }
         hasLeaved = false;
         player.style.border = "2px solid tomato";
